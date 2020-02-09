@@ -18,6 +18,24 @@ Examples
 "Mama"          -->  ["M", "m"]
 */
 
-function oddOneOut(str) {
-   // code me
+const oddOneOut = (str) => {
+  let arr = [];
+  let obj = {};
+
+  for(let i = 0; i < str.length; i++){
+     if(obj[str[i]] === undefined) {
+      obj[str[i]] = {times: 1, index: i};
+     } else {
+      obj[str[i]].times += 1;
+      obj[str[i]].index = i;
+     }
+  }
+
+  for(let j = 0; j < str.length; j++) {
+   if(obj[str[j]].times % 2 !== 0 && obj[str[j]].index === j) {
+      arr.push(str[j]);
+     }
+  }
+
+  return arr;
 }
